@@ -17,8 +17,11 @@ Chapter,Leader,qli,mdw,kds,sxg,dcox,dtj,rwd,jxp
 16     ,rwd,   mdw,kds,sxg,dcox,dtj,rwd,jxp,qli  
 17     ,jxp,   kds,sxg,dcox,dtj,rwd,jxp,qli,mdw
 
+Weekly meeting is scheduled at 11AM Thursday morning. 
 
 Meeting Leader will be responsible for running the weekly training meetings, 
-and ensure people submit their homework before Thursday morning, what else? :)
+and ensure people submit their homework before Wednesday morning, what else? :)
+
+
 
 
