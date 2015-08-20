@@ -1,0 +1,24 @@
+				   Author/Reviewer
+Chapter,Leader,qli,mdw,kds,sxg,dcox,dtj,rwd
+1/2    ,qli,   mdw,kds,sxg,dcox,dtj,rwd,qli        
+3      ,mdw,   kds,sxg,dcox,dtj,rwd,qli,mdw
+4      ,kds,   sxg,dcox,dtj,rwd,qli,mdw,kds
+5      ,sxg,   dcox,dtj,rwd,qli,mdw,kds,sxg
+6      ,dcox,  dtj,rwd,qli,mdw,kds,sxg,dcox
+7      ,dtj,   rwd,qli,mdw,kds,sxg,dcox,dtj
+8      ,rwd,   mdw,kds,sxg,dcox,dtj,rwd,qli        
+9      ,qli,   kds,sxg,dcox,dtj,rwd,qli,mdw
+10     ,mdw,   sxg,dcox,dtj,rwd,qli,mdw,kds
+11     ,kds,   dcox,dtj,rwd,qli,mdw,kds,sxg
+12     ,sxg,   dtj,rwd,qli,mdw,kds,sxg,dcox
+13     ,dcox,  rwd,qli,mdw,kds,sxg,dcox,dtj
+14     ,dtj,   mdw,kds,sxg,dcox,dtj,rwd,qli        
+15     ,rwd,   kds,sxg,dcox,dtj,rwd,qli,mdw
+16     ,qli,   sxg,dcox,dtj,rwd,qli,mdw,kds
+17     ,mdw,   dcox,dtj,rwd,qli,mdw,kds,sxg
+
+
+Meeting Leader will be responsible for running the weekly training meetings, 
+and ensure people submit their homework before Thursday morning, what else? :)
+
+
