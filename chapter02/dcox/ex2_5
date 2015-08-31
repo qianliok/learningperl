@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+use warnings;
+
+print "Enter a string:";
+$string = <STDIN>;
+
+print "Enter number of repeats:";
+chomp($repeats = <STDIN>);
+
+print $string x $repeats;
