@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+
+use warnings;
+
+$pi = 3.141592654;
+
+print "Enter radius:";
+chomp($unaltered_radius = $radius = <STDIN>);
+
+if(0 > $radius) {
+  print "Hey, whatya tryin' to do?\n";
+  $radius = 0;
+}
+
+$circumference = 2 * $radius * $pi;
+
+print "Circumference of a circle with radius $unaltered_radius is $circumference\n";
