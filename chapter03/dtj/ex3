@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+print "Enter some input, end with ctrl-d / ctrl-z\n";
+
+chomp(my @input = <STDIN>);
+@input = sort @input;
+
+print "Enter 1 for output on one line (default), enter 2 for seperate lines: ";
+chomp(my $style = <STDIN>);
+
+my $delimiter  = " ";
+if ($style == 2) {
+  $delimiter = "\n";
+}
+
+foreach my $line (@input) {
+  print $line. $delimiter;
+}
+
+#prevents extra newline when showing with seperate lines
+if ($style != 2) {
+  print "\n";
+}

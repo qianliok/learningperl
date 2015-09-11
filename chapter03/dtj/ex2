@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+print "Pick some numbers from 1-7, end with ctrl-d / ctrl-z\n";
+chomp(my @input = <STDIN>);
+
+my @flintstones = qw (fred betty barney dino wilma pebbles bamm-bamm);
+
+foreach my $num (@input) {
+  if ($num > 0  && $num < 8) {
+    print "$flintstones[$num-1] ";
+  }
+}
+
+print "\n";

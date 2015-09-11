@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+print "Enter some input, end with ctrl-d / ctrl-z\n";
+
+chomp(my @input = <STDIN>);
+@input = reverse @input;
+
+foreach my $line (@input) {
+  print $line. " ";
+}
+
+print "\n";
