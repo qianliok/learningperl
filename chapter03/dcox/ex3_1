@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+print "Enter some lines and I'll reverse them:\n";
+my @lines = <STDIN>;
+
+print "\nReversing:\n";
+print reverse @lines;
+
