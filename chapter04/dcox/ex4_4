@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use 5.010;
+
+sub greet {
+  state $last_guest = undef;
+  my $new_guest = shift;
+
+  if(!defined $last_guest) {
+    print "Hi, $new_guest! You are the first one here!\n";
+  }
+  else {
+    print "Hi, $new_guest! $last_guest is also here!\n";
+  }
+
+  $last_guest = $new_guest;
+}
+
+greet( "Fred" );
+greet( "Barney" );
+
