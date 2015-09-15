@@ -1,0 +1,38 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+sub average {
+  my $total;
+  foreach my $num (@_) {
+    $total += $num;
+  }
+
+  # Apparently dividing by 0 would be bad
+  if (@_) {
+    return $total / @_;
+  }
+
+  return 0;
+}
+
+sub above_average {
+  my $average = average(@_);
+
+  my @return;
+  foreach my $num (@_) {
+    if ($num > $average) {
+      push @return ,$num;
+    }
+  }
+
+  return @return;
+}
+
+my @fred = above_average(1..10);
+print "\@fred is @fred\n";
+print "(Should be 6 7 8 9 10)\n";
+my @barney = above_average(100, 1..10);
+print "\@barney is @barney\n";
+print "(Should be just 100)\n";

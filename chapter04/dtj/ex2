@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+sub total {
+  my $total;
+  foreach my $num (@_) {
+    $total += $num;
+  }
+  return $total;
+}
+
+print "The total of 1..1000 is: " . total((1..1000)) ."\n";
