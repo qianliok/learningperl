@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+sub total {
+  my $sum = 0;
+
+  $sum += $_ foreach(@_);
+
+  $sum;
+}
+
+print "The total of 1..1000 is ", &total(1..1000), "\n";
+
