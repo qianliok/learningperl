@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+if (@ARGV) {
+	print reverse (<>);
+} 
+else {
+	print "Nothing to reverse! \n" ;
+}
+
