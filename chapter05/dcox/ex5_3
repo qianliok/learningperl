@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Scalar::Util qw ( looks_like_number );
+
+sub print_ruler_line {
+    my $ruler_size = shift;
+
+    print $_ % 10 foreach ( 1 .. $ruler_size );
+    print "\n";
+}
+
+print "Enter some lines, starting with a column width, then Ctrl-D\n";
+
+# get one line
+chomp( my $column_width = <STDIN> );
+
+# default if rubbish is given
+$column_width = 60 if !looks_like_number($column_width);
+
+# get all the lines
+chomp( my @lines = <STDIN> );
+
+&print_ruler_line( $column_width + 10 );
+printf "%${column_width}s\n", $_ foreach (@lines);
+
