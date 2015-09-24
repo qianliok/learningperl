@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+print "How long is a string? ";
+chomp( my $width = <STDIN> );
+
+print "What do you want printed? ";
+chomp( my @words = <STDIN> );
+
+print "1234567890" x ($width/10+1), "\n";
+
+printf ("%${width}s\n", $_) foreach ( @words );
