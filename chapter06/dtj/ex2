@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+my %counts;
+
+chomp(my @words = <STDIN>);
+
+$counts{$_}++ foreach (@words);
+
+print "\nCounts\n" . '-' x 15 ."\n";
+print "$_: $counts{$_}\n" foreach (keys %counts);

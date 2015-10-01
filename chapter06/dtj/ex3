@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+my $width = 5;
+foreach my $key ( keys %ENV ) {
+    if ( length( $key ) > $width ){
+      $width = length( $key );
+    }
+}
+
+foreach my $key ( sort keys %ENV ) {
+    printf "%-${width}s => %s\n", $key, $ENV{$key};
+}
