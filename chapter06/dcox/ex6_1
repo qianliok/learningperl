@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature "say";
+
+my %names = ( 'fred' => 'flintstone',
+              'wilma' => 'flintstone',
+              'pebbles' => 'flintstone',
+              'dino' => undef,
+              'barney' => 'rubble',
+              'betty' => 'rubble',
+              'bamm-bamm' => 'rubble',
+              'mr' => 'slate',
+              'arnold' => undef,
+              'joe' => 'rockhead',
+              'pearl' => 'slaghoople',
+              'great' => 'gazoo',
+              'tex' => 'hardrock',
+              'sam' => 'slagheap',
+              );
+
+say "Gimme some first names and I'll give you the family name. Ctrl-D to end.";
+
+while ( <STDIN> ) {
+  chomp($_);
+  if ( exists $names{$_} ) {
+    if ( defined $names{$_} ) {
+      say $_ . "'s family name is " . $names{$_};
+    }
+    else {
+      say "Sorry, I don't know " . $_ . "'s surname";
+    }
+  }
+  else {
+    say "Sorry, I don't recognise the name " . $_;
+  }
+}
+
