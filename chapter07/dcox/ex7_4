@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+while (<STDIN>) {
+    if (/[A-Z]+[a-z]+[a-zA-Z]*/) { print $_; }
+}
+
