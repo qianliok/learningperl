@@ -1,0 +1,35 @@
+#!/usr/bin/perl
+while ( <> ) { # take one input line at a time
+  chomp;
+  if ( /(?<word>\b\w*a\b)(?<up_to_five>.{0,5})/ ) {
+    print "Matched: |$`<$&>$'|\n"; # the special match vars
+    print 'word contains ' . $+{word} . "\n";
+    print 'up_to_five contains \'' . $+{up_to_five} . "\'\n";
+  }
+  else {
+    print "No match: |$_|\n";
+  }
+}
+
+#!/usr/bin/perl
+
+while ( <> ) {
+  chomp;
+  if ( /\s$/ ) {
+    print "matched '$&'\n";
+  }
+}
+
+#!/usr/bin/perl
+while ( <> ) { # take one input line at a time
+  chomp;
+  if ( /YOUR_PATTERN_GOES_HERE/ ) {
+    print "Matched: |$`<$&>$'|\n"; # the special match vars
+  }
+  else {
+    print "No match: |$_|\n";
+  }
+}
+
+
+
