@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+## Copyright (C) 2015 by dtj
+
+use strict;
+use warnings;
+
+$^I = ".bak";
+
+my $copyright = "## Copyright (C) 2015 by dtj";
+
+while (<>) {
+	if (!/\#\# Copyright \(C\)/) {
+		print;
+	}
+
+	if ( /^#!.+/ ) {
+	    	print $copyright . "\n";
+	}
+}

@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+## Copyright (C) 2015 by dtj
+
+use strict;
+use warnings;
+
+$^I = ".bak";
+
+while (<>) {s
+	print;
+	if ( /^#!.+/ ) {
+	    	print $copyright;
+	}
+}

@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+## Copyright (C) 2015 by dtj
+
+use warnings;
+use strict;
+
+if ( !$ARGV[0] || !open INPUT, "<", $ARGV[0] ) {
+  die "Could not open file for reading\n";
+}
+
+open OUTPUT, ">", $ARGV[0] . ".out";
+
+while (<INPUT>) {
+    s/fred/larry/gi;
+    print OUTPUT $_;
+}
