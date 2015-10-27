@@ -1,0 +1,1 @@
+perl -p -i.out -w -e 's/Fred/Larry/gi' input.txt
