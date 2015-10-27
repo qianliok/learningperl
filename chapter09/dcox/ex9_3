@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+## Copyright (C) 2015 by codavex
+
+use strict;
+use warnings;
+
+if ( @ARGV != 1 ) {
+    die "Need a filename";
+}
+
+my $inputfile  = $ARGV[0];
+my $outputfile = "$inputfile.out";
+
+if ( !open INFILE, "<", $inputfile ) {
+    die "can't open $inputfile";
+}
+
+if ( !open OUTFILE, ">", $outputfile ) {
+    die "can't open $outputfile";
+}
+
+my $marker = "SWAP_ME_BACK_LATER_I_HOPE_I_DONT_EXIST";
+
+while (<INFILE>) {
+    s/fred/$marker/gi;
+    s/wilma/fred/gi;
+    s/$marker/wilma/gi;
+    print OUTFILE $_;
+}
+
