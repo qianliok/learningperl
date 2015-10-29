@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+## Copyright (C) 2015 by codavex
+
+use strict;
+use warnings;
+
+my $copyright = "## Copyright (C) 2015 by codavex";
+
+my @FILTERED_ARGV = @ARGV;
+
+while (<>) {
+    if (/\A\Q$copyright\E/) {   # need \Q.*\E to cope with parenthesis in string
+         # blatantly copied from http://stackoverflow.com/questions/174292/what-is-the-best-way-to-delete-a-value-from-an-array-in-perl
+        @FILTERED_ARGV = grep { $_ ne $ARGV } @FILTERED_ARGV;
+    }
+}
+
+@ARGV = @FILTERED_ARGV;
+
+$^I = "*.out";
+
+if ( @ARGV > 1 ) {
+    while (<>) {
+        s{\A(#!/usr/bin/perl.*)\Z}{$1\n$copyright};
+        print;
+    }
+}
+
