@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature "say";
+
+$ENV{SOMETHING_UNDEFINED} = undef;
+
+my $length = 0;
+
+foreach my $env_var ( keys %ENV ) {
+    $length = length $env_var if length $env_var > $length;
+}
+
+foreach my $env_var ( sort keys %ENV ) {
+    printf "%-${length}s: %s\n", $env_var,
+      $ENV{$env_var} // "(undefined value)";
+}
+

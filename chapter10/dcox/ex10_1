@@ -1,0 +1,38 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use 5.010;
+
+use Scalar::Util qw(looks_like_number);
+
+my $min           = 1;
+my $max           = 100;
+my $random_number = int( $min + rand $max );
+
+say "Guess a number between $min and $max";
+
+while (1) {
+
+    chomp( my $guess = <STDIN> );
+
+    if ( $guess =~ /\A(quit|exit|)\Z/i ) {
+        say "Quitter!";
+        last;
+    }
+    elsif ( !looks_like_number($guess) ) {
+        say "No, I need it in digits, between $min and $max";
+    }
+    elsif ( $guess > $random_number ) {
+        say "Too high";
+    }
+    elsif ( $guess < $random_number ) {
+        say "Too low";
+    }
+    elsif ( $guess = $random_number ) {    # should this just be else?
+        say "Huzzah!";
+        last;
+    }
+}
+
