@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+$ENV{"test_ex3"} = undef;
+
+my $width = 5;
+foreach my $key ( keys %ENV ) {
+    if ( length( $key ) > $width ){
+      $width = length( $key );
+    }
+}
+
+my $value;
+foreach my $key ( sort keys %ENV ) {
+  $value =  $ENV{$key} // "(undefined value)";
+  printf "%-${width}s => %s\n", $key, $value;
+}
