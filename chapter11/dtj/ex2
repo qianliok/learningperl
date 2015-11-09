@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+
+use DateTime;
+use Scalar::Util qw(looks_like_number); # Needed declaring, unlike for some others
+use strict;
+use warnings;
+
+die "Need 3 input arguments: Year, Month, Day" if (@ARGV != 3);
+
+for (0..2) {
+  die "$ARGV[$_] is not a valid number"
+    if (!looks_like_number ($ARGV[$_]));
+}
+
+my ( $year, $month, $day ) = @ARGV;
+
+my $LocalTZ = DateTime::TimeZone->new( name => 'local' );
+my $time = DateTime->from_epoch( epoch => time, time_zone => $LocalTZ);
+
+my $then = DateTime->new(
+    year       => $year,
+    month      => $month,
+    day        => $day,
+    );
+
+my $duration = $then - $time;
+
+printf "%d years, %d months, and %d days\n", $duration->in_units( qw(years months days) );
