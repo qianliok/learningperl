@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature "say";
+
+if ( @ARGV == 0 ) {
+    say "Give me some filenames and I'll tell you the oldest";
+    exit 0;
+}
+
+my $oldest_file     = undef;
+my $oldest_file_age = 0;
+
+foreach my $file (@ARGV) {
+    my $file_age = ( -M $file );
+    if ( $file_age > $oldest_file_age ) {
+        $oldest_file     = $file;
+        $oldest_file_age = $file_age;
+    }
+}
+
+printf "Oldest file is %s (%.2f days)\n", $oldest_file, $oldest_file_age;
+
