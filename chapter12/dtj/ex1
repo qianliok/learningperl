@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+die "Files need to be supplied as command line arguments \n" unless @ARGV;
+
+foreach my $file (@ARGV) {
+	print "$file has permissions: ";
+	if(-e $file) {
+    print "read " if -r $file;
+  	print "write " if -w $file;
+  	print "execute" if -x $file;
+	} else {
+		print "Does not exist";
+	}
+  print "\n";
+}
