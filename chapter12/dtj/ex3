@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+die "Files need to be supplied as command line arguments \n" unless @ARGV;
+
+foreach my $file ( @ARGV ) {
+  if ( ! -e $file ) {
+    print "$file does not exist!\n";
+  } elsif ( -w -r -o $file ) {
+    print "$file is readable, writable, and owned by you\n";
+  }
+}
