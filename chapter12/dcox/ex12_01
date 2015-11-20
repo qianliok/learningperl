@@ -1,0 +1,43 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature "say";
+
+sub file_report {
+    my $file_name = shift;
+
+    my @file_attributes;
+
+    my $attribute = "existant";
+    if ( !-e $file_name ) {
+        $attribute = "non-$attribute";
+    }
+    push @file_attributes, $attribute;
+
+    $attribute = "readable";
+    if ( !-r $file_name ) {
+        $attribute = "non-$attribute";
+    }
+    push @file_attributes, $attribute;
+
+    $attribute = "writable";
+    if ( !-w $file_name ) {
+        $attribute = "non-$attribute";
+    }
+    push @file_attributes, $attribute;
+
+    $attribute = "executable";
+    if ( !-x $file_name ) {
+        $attribute = "non-$attribute";
+    }
+    push @file_attributes, $attribute;
+
+    say "$file_name: ", join ",", @file_attributes;
+}
+
+foreach my $file (@ARGV) {
+    file_report($file);
+}
+
