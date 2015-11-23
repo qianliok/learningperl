@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+print "Removing everything from /.....(just kidding)\n";
+
+foreach my $file (@ARGV) {
+  print "removing $file\n";
+  unlink $file;
+}
