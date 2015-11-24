@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use File::Basename;
+
+use feature "say";
+
+die "Need two command line arguements" if ( scalar @ARGV != 2 );
+
+my $source = $ARGV[0];
+my $target = $ARGV[1];
+
+if ( -d $target ) {
+    $target .= "/" . ( basename $source );
+}
+
+rename $source => $target;
+
