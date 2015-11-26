@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature "say";
+
+say "symlinks in dir:";
+
+foreach my $file ( glob '*' ) {
+    if ( -l $file ) {
+        my $target = readlink $file;
+        say "$file => $target";
+    }
+}
+

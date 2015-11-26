@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+foreach my $file (@ARGV) {
+    unlink $file or warn "failed on $file: $!\n";
+}
+
