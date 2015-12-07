@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my %last_name = qw{
+  fred flintstone Wilma Flintstone Barney Rubble
+  betty rubble Bamm-Bamm Rubble PEBBLES FLINTSTONE
+};
+
+my @sorted = sort by_surname_and_forename (keys %last_name);
+
+print "$_ $last_name{$_}\n" foreach (@sorted);
+
+sub by_surname_and_forename {
+  "\L$last_name{$a}" cmp "\L$last_name{$b}"
+    or
+  "\L$a" cmp "\L$b"
+}

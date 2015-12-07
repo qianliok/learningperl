@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+print "Enter a string to search\n";
+chomp (my $string = <STDIN> );
+
+print "Enter a substring\n";
+chomp (my $substring = <STDIN> );
+
+my $index = index( $string, $substring, 0 );
+while ($index != -1) {
+  print "$index\n";
+  $index = index($string, $substring, $index + 1);
+}

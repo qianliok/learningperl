@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+# It would be nice to be able to retain for example '04' instead of '4' in the output, but I had no luck
+my @input  = (
+  17,
+  1000,
+  04,
+  1.50,
+  3.14159,
+  -10,
+  1.5,
+  4,
+  2001,
+  90210,
+  666,
+);
+
+@input = @ARGV if ( @ARGV );
+
+printf ("%20s\n", $_) foreach ( sort {$a <=> $b} @input );
