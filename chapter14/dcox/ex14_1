@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature "say";
+
+use Scalar::Util qw( looks_like_number );
+
+my @numbers = ();
+
+while (<>) {
+    push @numbers, split;
+}
+
+foreach ( sort { $a <=> $b } @numbers ) {
+    printf "%10g\n", $_;
+}
+
