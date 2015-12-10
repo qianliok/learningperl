@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature "say";
+
+use Scalar::Util qw( looks_like_number );
+
+my $test_string = "This is a test.";
+my $sub_string  = "t";
+
+my $last_substr_pos = 0;
+
+while ( $last_substr_pos != -1 ) {
+    $last_substr_pos = index( $test_string, $sub_string, $last_substr_pos + 1 );
+    if ( $last_substr_pos != -1 ) {
+        say $last_substr_pos;
+    }
+}
+
