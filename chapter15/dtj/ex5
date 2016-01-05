@@ -1,0 +1,32 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Scalar::Util qw(looks_like_number);
+use 5.010001;
+
+chomp ( my $number = <STDIN>);
+my @empty_array;
+my @divisors;
+my $fav = 59;
+
+given ($number) {
+  when ( !looks_like_number( $number ) ) { die "That's not a number\n" }
+  when ( looks_like_number( $number ) ) { @divisors = divisors( $number ); continue; }
+  when ( @divisors ~~ @empty_array ) { say "Thats a prime number"; continue; };
+  when ( $fav ~~ @divisors || $fav ~~ $number ) { say "Favourite number!"; continue; }
+  when ( !(2 ~~ @divisors) ) { say "Odd number"; continue; }
+  when ( 2 ~~ @divisors ) { say "Even number"; continue; }
+  when ( !(@divisors ~~ @empty_array) ){ say "The number is divisible by @divisors"}
+}
+
+sub divisors {
+    my $number = shift;
+
+    my @divisors = ();
+    foreach my $divisor ( 2 .. ( $number/2 ) ) {
+        push @divisors, $divisor unless $number % $divisor;
+    }
+
+    return @divisors;
+}

@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use 5.010001;
+
+foreach ( @ARGV ) {
+  when ( !-e ) { say "File doesn't exist!"; }
+  when ( -r ) { say "readable"; continue; }
+  when ( -w ) { say "writeable"; continue; }
+  when ( -x ) { say "executable"; continue; }
+}

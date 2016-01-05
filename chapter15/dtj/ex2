@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use 5.010001;
+
+chomp ( my $number = <STDIN>);
+
+given ($number) {
+  when ( $number % 3 == 0 )   { say "Fizz"; continue;}
+  when ( $number % 5 == 0 )   { say "Bin"; continue;}
+  when ( $number % 7 == 0 )  { say "Sausage"; }
+}
