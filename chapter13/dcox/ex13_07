@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use File::Basename;
+
+use feature "say";
+
+my $symlink = undef;
+
+if ( $ARGV[0] eq "-s" ) {
+    $symlink = 1;
+    shift @ARGV;
+}
+
+my $source = $ARGV[0];
+my $target = $ARGV[1];
+
+if ( -d $target ) {
+    $target .= "/" . ( basename $source );
+}
+
+if ($symlink) {
+    symlink $source, $target or warn "can't symlink $source to $target: $!";
+}
+else {
+    link $source, $target or warn "can't link $source to $target: $!";
+}
+

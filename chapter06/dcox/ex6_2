@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature "say";
+
+say "Enter a list of words per line. Ctrl-D to finish";
+
+my %words;
+
+while (<STDIN>) {
+  chomp($_);
+  $words{$_} += 1;
+}
+
+foreach my $word (sort keys %words) {
+  say $word . ": " . $words{$word};
+}
+

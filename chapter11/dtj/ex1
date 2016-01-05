@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use Module::CoreList qw( version );
+use strict;
+use warnings;
+
+my %modules = %{ $Module::CoreList::version{5.014} };
+
+print "$_ \n" for (sort (keys %modules));

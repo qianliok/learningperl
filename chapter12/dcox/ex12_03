@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature "say";
+
+say "Files from command line that are owned by me, readable and writeable:";
+
+foreach my $file (@ARGV) {
+    if ( -r -w -o $file ) {
+        say $file;
+    }
+}
+

@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+#I accidentally did ex7 here and then just hit undo until it looked right, so something might be wrong
+use strict;
+use warnings;
+use File::Basename;
+
+die "Need 2 arguments, source and destination" unless @ARGV == 2;
+
+my($source, $dest) = @ARGV;
+
+if (-d $dest) {
+  $dest .= "/" . basename $source;
+}
+
+link $source, $dest or die "Error moving files! $!";

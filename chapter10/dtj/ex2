@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use 5.10.0;
+
+my $debug = $ARGV[0] && $ARGV[0] eq "V";
+
+my $guess = 101;
+my $secret =  int(1 + rand 100);
+say "Secret is: $secret" if ($debug);
+
+while (1) {
+  say "Take a guess";
+  chomp ($guess = <STDIN>);
+  say "User guessed: $guess" if ($debug);
+  last if (!$guess || $guess =~ /quit|exit/i || $guess == $secret);
+  say "Too " . ($guess < $secret ? "low" : "high");
+}

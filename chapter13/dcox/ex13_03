@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature "say";
+
+say "Gimme a directory:";
+
+chomp( my $dir = <STDIN> );
+
+if ( $dir =~ /\A\s*\z/ ) {
+    say "I said gimme a directory!";
+    $dir = $ENV{HOME};
+    say "Ok, defaulting to home dir: $dir";
+}
+
+chdir $dir or die "Couldn't change to that dir :sadface:";
+
+opendir my $dh, $dir or die "Couldn't open $dir";
+
+say "File listing of $dir:";
+
+foreach my $file ( readdir $dh ) {
+    say $file;
+}
+
+closedir $dh
+

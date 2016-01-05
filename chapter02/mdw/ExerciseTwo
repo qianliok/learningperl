@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use 5.010;
+use warnings;
+
+chomp($radius = <STDIN>);
+
+$pi = 3.141592654;
+
+$circumference = 2*$pi*$radius;
+
+say "$circumference";

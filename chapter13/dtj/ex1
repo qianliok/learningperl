@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+print "Give me a directory\n";
+chomp (my $directory = <STDIN>);
+
+if ($directory =~ /\S/ ) {
+  chdir $directory or die "$! error when trying to open $directory";
+} else {
+  print "Only whitespace supplied, attempting home directory\n";
+  chdir or die "$! error when trying to open home directory";
+}
+
+foreach my $file (<*>) {
+  print $file . "\n";
+}

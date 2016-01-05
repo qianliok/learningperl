@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+die "Files need to be supplied as command line arguments \n" unless @ARGV;
+
+my $oldest_age = 0;
+my $oldest_name;
+foreach my $file (@ARGV) {
+  my $age = -M $file;
+  ($oldest_age, $oldest_name) = ($age, $file) if $age > $oldest_age;
+}
+
+print "The oldest file is $oldest_name, and it is $oldest_age days old\n";

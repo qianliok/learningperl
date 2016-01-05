@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+print "Enter some lines and I'll sort them:\n";
+chomp( my @lines = <STDIN> );
+@lines = sort @lines;
+
+print "\nSorted:\n";
+print "@lines\n";
+

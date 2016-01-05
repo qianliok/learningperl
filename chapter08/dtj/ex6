@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+foreach my $line (<>) {                   # take one input line at a time
+	chomp $line;
+	print $line . "|\n" if ($line =~/\s\z/);
+}

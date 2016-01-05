@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+while ( <> ) {
+  chomp;
+  if ( /\s$/ ) {
+    print "matched '$&'\n";
+  }
+}
+

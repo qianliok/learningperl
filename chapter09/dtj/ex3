@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+## Copyright (C) 2015 by dtj
+
+use warnings;
+use strict;
+
+if ( !$ARGV[0] || !open INPUT, "<", $ARGV[0] ) {
+  die "Could not open file for reading\n";
+}
+
+open OUTPUT, ">", $ARGV[0] . ".out";
+
+# Use something random, as it's less likely to appear in the input
+my $temp_random_variable = "<4 - chosen by fair dice roll. guaranteed to be random>";
+while (<INPUT>) {
+  s/Fred/$temp_random_variable/gi;
+  s/Wilma/Fred/gi;
+  s/$temp_random_variable/Wilma/gi;
+
+  print OUTPUT $_;
+}

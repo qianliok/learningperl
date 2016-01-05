@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+## Copyright (C) 2015 by codavex
+
+use strict;
+use warnings;
+
+$^I = "*.out";
+
+my $copyright = "## Copyright (C) 2015 by codavex";
+
+while (<>) {
+    s{\A(#!/usr/bin/perl.*)\Z}{$1\n$copyright};
+    print;
+}
+

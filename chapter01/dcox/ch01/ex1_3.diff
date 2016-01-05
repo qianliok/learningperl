@@ -1,0 +1,16 @@
+4c4
+< X<atan2> X<arctangent> X<tan> X<tangent>
+---
+> ATAN2 ARCTANGENT TAN TANGENT
+10c10
+< For the tangent operation, you may use the C<Math::Trig::tan>
+---
+> For the tangent operation, you may use the MATH::TRIG::TAN
+15c15
+< The return value for C<atan2(0,0)> is implementation-defined; consult
+---
+> The return value for ATAN2(0,0) is implementation-defined; consult
+18c18
+< Portability issues: L<perlport/atan2>.
+---
+> Portability issues: PERLPORT/ATAN2.

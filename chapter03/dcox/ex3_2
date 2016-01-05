@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use Scalar::Util qw( looks_like_number );
+
+my @names = qw/fred betty barney dino wilma pebbles bamm-bamm/;
+
+print "Enter some numbers:\n";
+chomp( my @numbers = <STDIN> );
+
+print "\nCharacter mapping\n";
+foreach my $number (@numbers) {
+
+    # shenanigans cos list is 0-based, but user is starting at 1
+    if ( looks_like_number($number) && 1 <= $number && $number <= $#names + 1 )
+    {
+        print "$names[$number-1]\n";
+    }
+    else {
+        print "Flinstones equivalent of a red shirt\n";
+    }
+}
+

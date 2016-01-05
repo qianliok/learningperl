@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my %not_quite_to_spec_hash = (
+  dcox => 'David Cox',
+  qli => 'Qian Li',
+  jxp => 'Jonathan Peace',
+  dtj => 'Daniel Jones',
+  mdw => 'Mark Wignall',
+  kds => 'Kris Stewart',
+  sxg => 'Sebin George',
+  pxd => 'Pratyusha Doddapaneni',
+  rwd => 'Rafael Doblas'
+);
+
+print "Who are you looking up?\n";
+chomp( my $name = <STDIN> );
+
+if ( exists $not_quite_to_spec_hash{$name} ) {
+  print "$name is $not_quite_to_spec_hash{$name}\n";
+} else {
+  print "They weren't cool enough to join us\n";
+}

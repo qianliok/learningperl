@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+print "Tell me about fred and his friends:\n";
+
+my @input = <>;
+
+foreach my $line ( @input ){
+  print $line if( $line =~ /([a-z]+[A-Z]+|[A-Z]+[a-z]+)\s*/);
+
+  # fails if left as because perl automatically assumes $_
+  # print $line if(/([a-z]+[A-Z]+|[A-Z]+[a-z]+)\s*/);
+}

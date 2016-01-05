@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use 5.010;
+
+sub greet {
+  state $last;
+  my $visitor = shift @_; 
+
+  if ( defined $last ){
+    print "Hi $visitor, $last is also here!\n";
+  } else {
+    print "Hi $visitor you are the first person!\n";
+  }
+
+  $last = $visitor;
+}
+
+greet( "dcox" );
+greet( "qli" );
+greet( "jxp" );
+greet( "dtj" );
+greet( "mdw" );
+greet( "kds" );
+greet( "sxg" );
+greet( "pxd" );
+greet( "rwd" );

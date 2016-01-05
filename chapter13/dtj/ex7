@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Getopt::Std;
+use File::Basename;
+
+our($opt_s);
+getopts('s');
+my $link_function = $opt_s ? \&CORE::symlink : \&CORE::link;
+die "Need 2 arguments, source and destination" unless @ARGV == 2;
+
+my($source, $dest) = @ARGV;
+
+if (-d $dest) {
+  $dest .= "/" . basename $source;
+}
+
+$link_function->($source, $dest) or die "Error moving files!";

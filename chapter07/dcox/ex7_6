@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+while (<STDIN>) {
+    if ( /fred/ && /wilma/ ) { print $_; }
+}
+

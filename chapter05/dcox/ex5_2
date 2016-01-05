@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+sub print_ruler_line {
+    print $_ % 10 foreach ( 1 .. 60 );
+    print "\n";
+}
+
+print "Enter some lines, then Ctrl-D\n";
+chomp( my @lines = <STDIN> );
+
+&print_ruler_line;
+printf "%20s\n", $_ foreach (@lines);
+

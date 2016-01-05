@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+while (<>) {                   # take one input line at a time
+	chomp;
+	if (/(?<word>(\ba\b)|\w+a\b)(?<extra>.{0,5})/i) {
+		print "Matched: |$`<$&>$'|\n";  # the special match vars
+		print "word contains '$+{word}'\n";
+		print "There was also extra! '$+{extra}'\n" if length $+{extra};
+	} else {
+		print "No match: |$_|\n";
+	}
+}

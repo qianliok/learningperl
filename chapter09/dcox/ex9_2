@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+## Copyright (C) 2015 by codavex
+
+use strict;
+use warnings;
+
+if ( @ARGV != 1 ) {
+    die "Need a filename";
+}
+
+my $inputfile  = $ARGV[0];
+my $outputfile = "$inputfile.out";
+
+if ( !open INFILE, "<", $inputfile ) {
+    die "can't open $inputfile";
+}
+
+if ( !open OUTFILE, ">", $outputfile ) {
+    die "can't open $outputfile";
+}
+
+while (<INFILE>) {
+    s/fred/Larry/gi;
+    print OUTFILE $_;
+}
+

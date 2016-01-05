@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+print "Tell me about fred and his friends:\n";
+my @input = <>;
+
+print "\nOutput:\n";
+foreach ( @input ){
+  print $_ if( /fred/ );
+}
