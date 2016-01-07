@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use 5.010001;
+
+my $guess;
+my $secret =  int(1 + rand 100);
+
+while (1) {
+  say "Take a guess";
+  chomp ($guess = <STDIN>);
+
+  given ($guess) {
+    when ( $guess < $secret )   { say "Too low"; }
+    when ( $guess > $secret )   { say "Too High"; }
+    when ( $guess == $secret )  { say "Correct!"; last; }
+    default                     { say "Quitting!"; last; }
+  }
+}
