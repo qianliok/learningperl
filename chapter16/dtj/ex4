@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Data::Dumper;
+
+my %sigs;
+
+print "Pid $$\n";
+$SIG{$_} = 'handler' for keys %SIG;
+
+while ( 1 ) {
+  sleep 5;
+}
+
+sub handler {
+  my ( $signal ) = @_;
+
+  $sigs{$signal}++;
+  print "$signal => $sigs{$signal}\n";
+
+  if ( $signal eq "INT" ) {
+    print Dumper( \%sigs );
+    exit 0;
+  }
+}

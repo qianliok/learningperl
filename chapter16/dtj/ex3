@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+print ( ( `date` =~ /^S/ ) ? "Go play\n" : "Get to work\n" );

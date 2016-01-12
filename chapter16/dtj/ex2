@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+# Probably not much to gain by updating the previous one here...
+
+use strict;
+use warnings;
+
+open my $std_out, '>', 'ls.out' or die "Could not open output! $!";
+open my $std_err, '>', 'ls.err' or die "Could not open output! $!";
+
+*STDERR = $std_err;
+
+do_command("cd / && ls -l");
+do_command("ThisIsNotARealCommand");
+
+sub do_command {
+  my ( $command ) = @_;
+  print $std_out `$command`
+}
