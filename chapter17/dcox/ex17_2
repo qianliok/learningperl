@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my @files = glob '*';
+
+foreach my $file (@files) {
+    my ( $atime, $mtime ) = ( stat($file) )[ 8, 9 ];
+    printf "%-10s %10s %10s\n", $file, $atime, $mtime;
+}
+
