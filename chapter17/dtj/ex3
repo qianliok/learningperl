@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+# Pretty sure $ENV{'PWD'} isn't portable
+opendir (DIR, $ENV{'PWD'}) or die $!;
+foreach my $file ( readdir DIR ) {
+  print join "\t", $file, ( map { to_local($_) } (stat $file)[8,9] ), "\n"
+}
+
+sub to_local {
+  my ( $time ) = @_;
+  my @localtime = (localtime($time))[5, 4, 3];
+  $localtime[0] += 1900; #year
+  $localtime[1] ++; #month
+  return join "-", @localtime;
+}
