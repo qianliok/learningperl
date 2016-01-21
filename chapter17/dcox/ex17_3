@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my @files = glob '*';
+
+foreach my $file (@files) {
+    my ( $atime, $mtime ) = map {
+        my ( $day, $month, $year ) = ( localtime($_) )[ 3, 4, 5 ];
+        $year  += 1900;
+        $month += 1;
+        sprintf "%4d-%02d-%02d", $year, $month, $day;
+    } ( stat($file) )[ 8, 9 ];
+    printf "%-10s %10s %10s\n", $file, $atime, $mtime;
+}
+
