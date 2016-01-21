@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+# Pretty sure $ENV{'PWD'} isn't portable
+opendir (DIR, $ENV{'PWD'}) or die $!;
+foreach my $file ( readdir DIR ) {
+   print join "\t", $file, (stat $file)[8,9], "\n"
+}
